@@ -353,7 +353,7 @@ box-shadow: 2px 7px 36px 0px rgba(78,9,156,1);
   margin: 0 0.5em 0 1em;
 }
 #breadcrumb li a {
-  color: gray;
+  color: rgb(138, 113, 113);
   text-decoration: none;
 }
 #breadcrumb li a:hover {
