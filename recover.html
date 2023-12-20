@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>Recover</title>
+            
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+            <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script> -->
+            <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" /> -->
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+        <script>
+            $(document).ready(function(){
+           var $form = $('form');
+           $form.submit(function(){
+              $.post($(this).attr('action'), $(this).serialize(), function(response){
+                    // do something here on success
+              },'json');
+              return false;
+           });
+        });
+            
+            </script>
+               <style>
+                    body{
+                        background-color:#3b0a44;
+                    }
+                .adminform{
+                    width: 100%;
+                    margin: auto;
+                    text-align: center;
+                    /* display: flex;
+                    flex-wrap: wrap; */
+                }
+                .input{
+                    margin-bottom: 10px;
+                    margin-top: 5px;
+                    width: 40%;
+                    padding: 3px;
+                    padding-left: 15px;
+                    border: none;
+                    border-bottom: 2px solid gray;
+                    border-left: 2px solid gray;
+    
+                }
+                label{
+                    font-size: 18px;
+                    font-family: sans-serif;
+                }
+                .maincontent input:focus{
+                    border: solid 2px rgba(108,13,217,1);
+                        -webkit-box-shadow: 1px 2px 15px 1px rgba(108,13,217,1);
+                        -moz-box-shadow: 1px 2px 15px 1px rgba(108,13,217,1);
+                        box-shadow: 1px 2px 15px 1px rgba(108,13,217,1);
+                     }
+                     .submit{
+                        border-radius: 5px;
+                        padding: 3px;
+                        /* width: 90px; */
+                        margin-top: 15px;
+                        height: 40px;
+                     }
+    
+                     h1{
+                         /* width: 50%; */
+                         margin: auto;
+                         text-align: center;
+                     }
+                     .maincontent{
+                         background-color: white;
+                         width:50%;
+                         margin: auto;
+                         margin-top: 50px;
+                         text-align: center;
+                         border-radius: 5px;
+                         padding: 15px;
+                         -webkit-box-shadow: 1px 1px 5px 11px rgba(0,0,0,1);
+                         -moz-box-shadow: 1px 1px 5px 11px rgba(0,0,0,1);
+                         box-shadow: 1px 1px 5px 11px rgba(0,0,0,1);
+                         margin-bottom: 15px;
+                     }
+                     a{
+                         text-decoration: none;
+                         font-size: 18px;
+                        font-family: sans-serif;
+                        background-color: gray;
+                        border-radius: 5px;
+                        padding: 5px;
+                     }
+                     hr{
+                         color: gray;
+                         background-color: gray;
+                     }                 
+                     .modal{
+                        text-align: center;  
+                     }
+    
+                </style>
+    </head>
+    <body>
+        <div class="maincontent">
+        <h1>Recover Restaurant</h1>
+        <hr>
+        <form action="Recover.php" method="POST">
+            <input class="input" type="text" name="resid2" id="resid" required placeholder="ID"><br>
+            <input type="submit" value="Recover Restaurant" class="submit btn btn-lg btn-success" id="submit">
+        </form>
+    </div>
+
+    <!-- //////////////////modal -->
+    <button style="display: none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="modelopen">
+      Launch demo modal
+    </button>
+    <button style="display: none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2" id="modelopen2">
+      Launch demo modal
+    </button>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Restaurant Recover successfully.
+          </div>
+          <div class="modal-footer">
+            <button id="submit" type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+     <!-- Modal 2-->
+     <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Wrong ID Try Correct ID
+          </div>
+          <div class="modal-footer">
+            <button id="submit" type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>      <script src="js/checkid.js"></script>
+    </body>
+</html>

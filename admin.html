@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Admin Control</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+        <!-- <link rel="stylesheet" href="css/styles.css"> -->
+        <script>
+            $(document).ready(function(){
+           var $form = $('form');
+           $form.submit(function(){
+              $.post($(this).attr('action'), $(this).serialize(), function(response){
+                    // do something here on success
+              },'json');
+              return false;
+           });
+        });
+            
+            </script>
+
+            <style>
+                body{
+                    background-color:#3b0a44;
+                }
+            .adminform{
+                width: 100%;
+                margin: auto;
+                text-align: center;
+                /* display: flex;
+                flex-wrap: wrap; */
+            }
+            .input{
+                margin-bottom: 10px;
+                margin-top: 5px;
+                width: 40%;
+                padding: 3px;
+                padding-left: 15px;
+                border: none;
+                border-bottom: 2px solid gray;
+                border-left: 2px solid gray;
+
+            }
+            label{
+                font-size: 18px;
+                font-family: sans-serif;
+            }
+            .adminform input:focus{
+                border: solid 2px rgba(108,13,217,1);
+                    -webkit-box-shadow: 1px 2px 15px 1px rgba(108,13,217,1);
+                    -moz-box-shadow: 1px 2px 15px 1px rgba(108,13,217,1);
+                    box-shadow: 1px 2px 15px 1px rgba(108,13,217,1);
+                 }
+                 .submit{
+                    border-radius: 5px;
+                    padding: 3px;
+                    /* width: 90px; */
+                    margin-top: 15px;
+                    height: 40px;
+                 }
+
+                 h1{
+                     /* width: 50%; */
+                     margin: auto;
+                     text-align: center;
+                 }
+                 .maincontent{
+                     background-color: white;
+                     width:50%;
+                     margin: auto;
+                     margin-top: 50px;
+                     text-align: center;
+                     border-radius: 5px;
+                     padding: 15px;
+                     -webkit-box-shadow: 1px 1px 5px 11px rgba(0,0,0,1);
+                     -moz-box-shadow: 1px 1px 5px 11px rgba(0,0,0,1);
+                     box-shadow: 1px 1px 5px 11px rgba(0,0,0,1);
+                     margin-bottom: 15px;
+                 }
+                 a{
+                     text-decoration: none;
+                     font-size: 18px;
+                    font-family: sans-serif;
+                    background-color: gray;
+                    border-radius: 5px;
+                    padding: 5px;
+                 }
+                 hr{
+                     color: gray;
+                     background-color: gray;
+                 }
+            </style>
+
+    </head>
+
+    <body>
+        <div class="maincontent">
+        <h1>Admin Control Panel</h1>
+        <hr>
+        <h2>Add Restaurant</h2>
+        <hr>
+        <br>
+    <div class="adminform">
+        <form action="comments.php" method="POST" id="form"> 
+            <input class="input" type="text" name="resname" required placeholder="Name">
+            <input class="input" type="text" name="rescity" required placeholder="City">
+            <br>
+            <input class="input" type="text" name="resimg" required placeholder="Image Link">
+            <input class="input" type="text" name="resaddress" required placeholder="Address">
+            <br>
+            <input class="input" type="text" name="lat" required placeholder="Coordinates(x)"> <input class="input" type="text" name="lng" required placeholder="Coordinates(y)">
+            <br>
+            <input class="input" type="text" name="restype" required placeholder="Type">
+            <br>
+            <h4>Open hours</h4>
+            <input class="input" type="text" name="sat" required placeholder="Saturday"> <input class="input" type="text" name="sun" required placeholder="Sunday">
+            <br>
+            <input class="input" type="text" name="mon" required placeholder="Monday"> <input class="input" type="text" name="tus" required placeholder="Tuesday">
+            <br>
+            <input class="input" type="text" name="wed" required placeholder="Wednesday"> <input class="input" type="text" name="thu" required placeholder="Thursday ">
+            <br>
+            <input class="input" type="text" name="fri" required placeholder="Friday ">
+            <hr>
+            <input type="submit" class="submit btn btn-lg btn-success" value="Add Restaurant">
+        </form>
+    </div>
+    <hr>
+    <br>
+        <a class="btn btn-lg btn-warning" href="remove.html">Remove</a>
+        <a class="btn btn-lg btn-success" href="recover.html">Recover</a>
+        <a class="btn btn-lg btn-danger" href="Permanentlydelete.html">Permanently delete</a>
+        
+    </div>
+    <button style="display: none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="modelopen">
+        Launch demo modal
+      </button>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Restaurant Added successfully.
+            </div>
+            <div class="modal-footer">
+              <button id="submit" type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <script>
+        let modellink = document.querySelector('#modelopen');
+        const form = document.getElementById('form');
+        form.addEventListener('submit',function(){
+            console.log('success');
+            modellink.click();
+        })
+
+    </script>
+    </body>
+</html>
