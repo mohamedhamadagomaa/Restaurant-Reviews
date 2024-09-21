@@ -185,10 +185,12 @@ nav {
 /* #cuisines-select{
   border-radius: 5px;
 } */
+
 #neighborhoods-select,
 #cuisines-select {
   border-radius: 5px;
 }
+
 /* #cuisines-select:hover {
   -webkit-box-shadow: 2px 7px 36px 0px rgba(78, 9, 156, 1);
   -moz-box-shadow: 2px 7px 36px 0px rgba(78, 9, 156, 1);
